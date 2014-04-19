@@ -10,16 +10,19 @@ namespace HelloGit.Controllers
     {
         //
         // GET: /HelloWorld/
-        public string Index()
+        public ActionResult Index()
         {
-            return "This is my <b>default</b> action...";
+            return View();
         }
 
         // 
         // GET: /HelloWorld/Welcome/
-        public string Welcome(string name, int id)
+        public ActionResult Welcome(string name, int numTimes)
         {
-            return HttpUtility.HtmlEncode("Welcome " + name + ", id " + id);
+            ViewBag.Message = HttpUtility.HtmlEncode("Hello " + name);
+            ViewBag.NumTimes = numTimes;
+
+            return View();
         }
 	}
 }
